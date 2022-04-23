@@ -5,14 +5,21 @@
       <map>
         <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/drawable/black_shade.xml" value="0.176" />
         <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/drawable/circle.xml" value="0.1665" />
+        <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/drawable/ic_add_friend.xml" value="0.1" />
+        <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/drawable/ic_call.xml" value="0.1" />
+        <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/drawable/ic_check.xml" value="0.1" />
+        <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/drawable/ic_checked.xml" value="0.1" />
+        <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/drawable/ic_checked_fill.xml" value="0.1" />
+        <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/drawable/ic_comment_profile.xml" value="0.1" />
+        <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/drawable/ic_home.xml" value="0.1" />
         <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/drawable/orange_circle.xml" value="0.1665" />
         <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/drawable/white_circle.xml" value="0.2095" />
         <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/layout/activity_main.xml" value="0.19791666666666666" />
-        <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/layout/dashboard_rv_sample.xml" value="0.4" />
+        <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/layout/dashboard_rv_sample.xml" value="0.1" />
         <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/layout/fragment_add.xml" value="0.19791666666666666" />
         <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/layout/fragment_notification.xml" value="0.19791666666666666" />
-        <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/layout/fragment_profile.xml" value="0.19791666666666666" />
+        <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/layout/fragment_profile.xml" value="0.4" />
         <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/layout/fragment_search.xml" value="0.4" />
         <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/layout/orange_circle.xml" value="0.19791666666666666" />
         <entry key="..\:/PcApps/AndroidStudioProjects/Wish/app/src/main/res/layout/story_rv_design.xml" value="0.1" />

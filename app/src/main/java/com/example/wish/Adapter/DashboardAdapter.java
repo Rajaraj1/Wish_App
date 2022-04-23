@@ -28,14 +28,14 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.view
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //Layout infalte karan hota hai
+        // We have to Inflate Layout Here
         View view = LayoutInflater.from(context).inflate(R.layout.dashboard_rv_sample,parent,false);
         return new viewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        //Data set karana hota hai
+        // We have to set Data here
         DashboardModel model = list.get(position);
 
         holder.profile.setImageResource(model.getProfile());
@@ -56,7 +56,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.view
     }
 
     public class viewHolder extends RecyclerView.ViewHolder{
-        // saree view ko hold karwana hota hai
+        // We have to hold all of the views here
         ImageView profile, postImage, save;
         TextView name, about, like, comment, share;
 
