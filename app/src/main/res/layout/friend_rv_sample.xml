@@ -8,12 +8,13 @@
         android:id="@+id/profile_image"
         android:layout_width="@dimen/_55mdp"
         android:layout_height="@dimen/_55mdp"
+        android:layout_marginEnd="2dp"
         android:padding="4dp"
         android:src="@drawable/riya_raj_1"
         diagonal:civ_border_color="@color/teal_700"
         diagonal:civ_border_width="2dp"
+        diagonal:layout_constraintEnd_toEndOf="parent"
         diagonal:layout_constraintStart_toStartOf="parent"
-        diagonal:layout_constraintTop_toTopOf="parent"
-        diagonal:layout_constraintVertical_bias="1.0" />
+        diagonal:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
