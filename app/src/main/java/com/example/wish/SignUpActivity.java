@@ -37,14 +37,14 @@ public class SignUpActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    User user = new User(binding.NameET.getText().toString(), binding.professionET.getText().toString(), email, password);
+                                    User user = new User(binding.NameET.getText().toString(),
+                                            binding.professionET.getText().toString(), email, password);
                                     String id = task.getResult().getUser().getUid();
                                     database.getReference().child("Users").child(id).setValue(user);
                                     Toast.makeText(SignUpActivity.this, "User Data Saved", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(SignUpActivity.this,MainActivity.class);
+                                    Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                                     startActivity(intent);
-                                }
-                                else{
+                                } else {
                                     Toast.makeText(SignUpActivity.this, "Error", Toast.LENGTH_SHORT).show();
                                 }
 
