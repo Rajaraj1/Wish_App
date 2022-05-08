@@ -42,34 +42,35 @@ public class Notification2Fragment extends Fragment {
         recyclerView = view.findViewById(R.id.notification2RV);
 
         list = new ArrayList<>();
-        list.add(new NotificationModel(R.drawable.diya_singh,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.cute_girl,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.riya_raj_1,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.riya_raj,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.diya_singh,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.cute_girl,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.riya_raj_1,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.riya_raj,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.diya_singh,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.cute_girl,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.riya_raj_1,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.riya_raj,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.diya_singh,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.cute_girl,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.riya_raj_1,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.riya_raj,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.diya_singh,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.cute_girl,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.riya_raj_1,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.riya_raj,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.diya_singh,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.cute_girl,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.riya_raj_1,"Riya raj mention you in a comment","just now"));
-        list.add(new NotificationModel(R.drawable.riya_raj,"Riya raj mention you in a comment","just now"));
+        list.add(new NotificationModel(R.drawable.diya_singh, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.cute_girl, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.riya_raj_1, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.riya_raj, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.diya_singh, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.cute_girl, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.riya_raj_1, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.riya_raj, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.diya_singh, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.cute_girl, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.riya_raj_1, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.riya_raj, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.diya_singh, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.cute_girl, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.riya_raj_1, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.riya_raj, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.diya_singh, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.cute_girl, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.riya_raj_1, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.riya_raj, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.diya_singh, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.cute_girl, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.riya_raj_1, "<b>Riya raj</b> mention you in a comment", "just now"));
+        list.add(new NotificationModel(R.drawable.riya_raj, "<b>Riya raj</b> mention you in a comment", "just now"));
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new NotificationAdapter(list,getContext()));
-
+        NotificationAdapter adapter = new NotificationAdapter(list, getContext());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
 
         return view;
     }

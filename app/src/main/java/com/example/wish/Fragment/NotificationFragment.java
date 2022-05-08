@@ -11,15 +11,18 @@ import android.view.ViewGroup;
 
 import com.example.wish.Adapter.ViewPagerAdapter;
 import com.example.wish.R;
+import com.example.wish.databinding.FragmentNotificationBinding;
 import com.google.android.material.tabs.TabLayout;
 
 public class NotificationFragment extends Fragment {
     ViewPager viewPager;
     TabLayout tabLayout;
+    FragmentNotificationBinding binding;
 
     public NotificationFragment() {
         // Required empty public constructor
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,17 +30,20 @@ public class NotificationFragment extends Fragment {
 
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_notification, container, false);
+        binding = binding.inflate(inflater, container, false);
 
-        viewPager = view.findViewById(R.id.viewPager);
+        viewPager = binding.viewPager;
+//        viewPager = view.findViewById(R.id.viewPager);
         viewPager.setAdapter(new ViewPagerAdapter(getFragmentManager()));
 
-        tabLayout = view.findViewById(R.id.tabLayout);
+        tabLayout = binding.tabLayout;
+//        tabLayout = view.findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
-        return view;
+        return binding.getRoot();
     }
 }
