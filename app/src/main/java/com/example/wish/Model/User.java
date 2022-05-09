@@ -1,10 +1,12 @@
-package com.example.wish;
+package com.example.wish.Model;
 
 public class User {
     private String name, profession, email, password;
+    private String coverPhoto;
+    private String userID;
+    private String profile;
 
     public User() {
-
     }
 
     public String getCoverPhoto() {
@@ -14,8 +16,6 @@ public class User {
     public void setCoverPhoto(String coverPhoto) {
         this.coverPhoto = coverPhoto;
     }
-
-    String coverPhoto;
 
     public User(String name, String profession, String email, String password) {
         this.name = name;
@@ -54,5 +54,21 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getProfile() {
+        return profile;
+    }
+
+    public void setProfile(String profile) {
+        this.profile = profile;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 }

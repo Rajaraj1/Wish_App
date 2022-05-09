@@ -13,13 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.wish.Adapter.FriendAdapter;
 import com.example.wish.Model.FriendModel;
 import com.example.wish.R;
-import com.example.wish.User;
+import com.example.wish.Model.User;
+import com.example.wish.databinding.FragmentProfileBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -36,10 +36,10 @@ import java.util.ArrayList;
 public class ProfileFragment extends Fragment {
     RecyclerView recyclerView;
     ArrayList<FriendModel> list;
-    ImageView changeCoverPhoto, coverPhoto;
     FirebaseAuth auth;
     FirebaseStorage storage;
     FirebaseDatabase database;
+    FragmentProfileBinding binding;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -48,6 +48,9 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        auth = FirebaseAuth.getInstance();
+        storage = FirebaseStorage.getInstance();
+        database = FirebaseDatabase.getInstance();
     }
 
     @Override
@@ -55,22 +58,26 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        binding = binding.inflate(inflater, container, false);
 
-        recyclerView = view.findViewById(R.id.friendRV);
-        auth = FirebaseAuth.getInstance();
-        storage = FirebaseStorage.getInstance();
-        database = FirebaseDatabase.getInstance();
+        recyclerView = binding.friendRV;
 
         database.getReference().child("Users").child(auth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
+                if (snapshot.exists()) {
                     User user = snapshot.getValue(User.class);
                     Picasso.get()
                             .load(user.getCoverPhoto())
                             .placeholder(R.drawable.diya_singh)
-                            .into(coverPhoto);
+                            .into(binding.coverPhoto);
+                    Picasso.get()
+                            .load(user.getProfile())
+                            .placeholder(R.drawable.cute_girl)
+                            .into(binding.profileImage);
+
+                    binding.userName.setText(user.getName());
+                    binding.profession.setText(user.getProfession());
                 }
             }
 
@@ -94,10 +101,7 @@ public class ProfileFragment extends Fragment {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
 
-        changeCoverPhoto = view.findViewById(R.id.changeCoverPhoto);
-        coverPhoto = view.findViewById(R.id.coverPhoto);
-
-        changeCoverPhoto.setOnClickListener(new View.OnClickListener() {
+        binding.changeCoverPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
@@ -106,30 +110,82 @@ public class ProfileFragment extends Fragment {
                 startActivityForResult(intent, 11);
             }
         });
-        return view;
+
+        binding.verifiedAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                startActivityForResult(intent, 22);
+            }
+        });
+
+        return binding.getRoot();
     }
 
-    @Override
+    //
+//    ActivityResultLauncher<Intent> someIntentActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+//        @Override
+//        public void onActivityResult(ActivityResult result) {
+//            if(result.getResultCode() == Activity.RESULT_OK){
+//                Intent data = result.getData();
+//                Uri uri = data.getData();
+//                binding.coverPhoto.setImageURI(uri);
+//
+//                final StorageReference reference = storage.getReference().child("cover_photo")
+//                        .child(FirebaseAuth.getInstance().getUid());
+//                reference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+//                    @Override
+//                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+//                        Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//            }
+//        }
+//    });
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (data.getData() != null) {
-            Uri uri = data.getData();
-            coverPhoto.setImageURI(uri);
+        if (requestCode == 11) {
+            if (data.getData() != null) {
+                Uri uri = data.getData();
+                binding.coverPhoto.setImageURI(uri);
 
-            final StorageReference reference = storage.getReference().child("cover_photo")
-                    .child(FirebaseAuth.getInstance().getUid());
-            reference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Toast.makeText(getContext(),"Cover Photo Saved",Toast.LENGTH_SHORT);
-                    reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                        database.getReference().child("Users").child(auth.getUid()).child("CoverPhoto").setValue(uri.toString());
-                        }
-                    });
-                }
-            });
+                final StorageReference reference = storage.getReference().child("cover_photo")
+                        .child(FirebaseAuth.getInstance().getUid());
+                reference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Toast.makeText(getContext(), "Cover photo saved", Toast.LENGTH_SHORT);
+                        reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                database.getReference().child("Users").child(auth.getUid()).child("coverPhoto").setValue(uri.toString());
+                            }
+                        });
+                    }
+                });
+            }
+        } else {
+            if (data.getData() != null) {
+                Uri uri = data.getData();
+                binding.profileImage.setImageURI(uri);
+
+                final StorageReference reference = storage.getReference().child("profile_image")
+                        .child(FirebaseAuth.getInstance().getUid());
+                reference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Toast.makeText(getContext(), "Profile photo saved", Toast.LENGTH_SHORT);
+                        reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                database.getReference().child("Users").child(auth.getUid()).child("profile").setValue(uri.toString());
+                            }
+                        });
+                    }
+                });
+            }
         }
     }
 }

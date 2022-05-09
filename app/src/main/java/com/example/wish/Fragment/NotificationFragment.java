@@ -35,15 +35,15 @@ public class NotificationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding = binding.inflate(inflater, container, false);
+        View view = inflater.inflate(R.layout.fragment_notification, container, false);
 
-        viewPager = binding.viewPager;
-//        viewPager = view.findViewById(R.id.viewPager);
+//        viewPager = binding.viewPager;
+        viewPager = view.findViewById(R.id.viewPager);
         viewPager.setAdapter(new ViewPagerAdapter(getFragmentManager()));
 
-        tabLayout = binding.tabLayout;
-//        tabLayout = view.findViewById(R.id.tabLayout);
+//        tabLayout = binding.tabLayout;
+        tabLayout = view.findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
-        return binding.getRoot();
+        return view;
     }
 }

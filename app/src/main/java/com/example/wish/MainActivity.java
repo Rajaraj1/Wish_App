@@ -12,6 +12,7 @@ import com.example.wish.Fragment.AddFragment;
 import com.example.wish.Fragment.HomeFragment;
 import com.example.wish.Fragment.NotificationFragment;
 import com.example.wish.Fragment.ProfileFragment;
+import com.example.wish.Fragment.SearchFragment;
 import com.example.wish.databinding.ActivityMainBinding;
 
 import me.ibrahimsn.lib.OnItemSelectedListener;
@@ -19,6 +20,7 @@ import me.ibrahimsn.lib.OnItemSelectedListener;
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         binding.toolbar.setVisibility(View.GONE);
-        transaction.replace(R.id.container,new HomeFragment());
+        transaction.replace(R.id.container, new HomeFragment());
         transaction.commit();
 
         binding.bottomBar.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -40,23 +42,28 @@ public class MainActivity extends AppCompatActivity {
 
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-                switch(i){
+                switch (i) {
                     case 0:
                         binding.toolbar.setVisibility(View.GONE);
-                        transaction.replace(R.id.container,new HomeFragment());
+                        transaction.replace(R.id.container, new HomeFragment());
                         break;
                     case 1:
                         binding.toolbar.setVisibility(View.GONE);
-                        transaction.replace(R.id.container,new NotificationFragment());
+                        transaction.replace(R.id.container, new NotificationFragment());
                         break;
                     case 2:
                         binding.toolbar.setVisibility(View.GONE);
                         transaction.replace(R.id.container, new AddFragment());
                         break;
-                    case 3:
 
+                    case 3:
+                        binding.toolbar.setVisibility(View.GONE);
+                        transaction.replace(R.id.container, new SearchFragment());
+                        break;
+
+                    case 4:
                         binding.toolbar.setVisibility(View.VISIBLE);
-                        transaction.replace(R.id.container,new ProfileFragment());
+                        transaction.replace(R.id.container, new ProfileFragment());
                         break;
                 }
                 transaction.commit();
@@ -68,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_item,menu);
+        getMenuInflater().inflate(R.menu.menu_item, menu);
         return true;
     }
 }

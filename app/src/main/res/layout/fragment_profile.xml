@@ -50,7 +50,7 @@
         </LinearLayout>
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
+            android:id="@+id/profileImage"
             android:layout_width="@dimen/_90mdp"
             android:layout_height="@dimen/_90mdp"
             android:padding="4dp"
@@ -70,23 +70,23 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="16dp"
                 android:src="@drawable/ic_image"
-                diagonal:layout_constraintBottom_toBottomOf="@+id/profile_image"
+                diagonal:layout_constraintBottom_toBottomOf="@+id/profileImage"
                 diagonal:layout_constraintStart_toStartOf="parent" />
 
             <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/verifiedAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_checked_fill"
-            diagonal:layout_constraintBottom_toBottomOf="@+id/profile_image"
-            diagonal:layout_constraintEnd_toEndOf="@+id/profile_image"
+            diagonal:layout_constraintBottom_toBottomOf="@+id/profileImage"
+            diagonal:layout_constraintEnd_toEndOf="@+id/profileImage"
             diagonal:layout_constraintHorizontal_bias="0.9"
-            diagonal:layout_constraintStart_toStartOf="@+id/profile_image"
-            diagonal:layout_constraintTop_toTopOf="@+id/profile_image"
+            diagonal:layout_constraintStart_toStartOf="@+id/profileImage"
+            diagonal:layout_constraintTop_toTopOf="@+id/profileImage"
             diagonal:layout_constraintVertical_bias="0.9" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/userName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -94,19 +94,19 @@
             android:text="Riya raj"
             android:textColor="@color/black"
             android:textSize="@dimen/_18font_mdp"
-            diagonal:layout_constraintEnd_toEndOf="@+id/profile_image"
-            diagonal:layout_constraintStart_toStartOf="@+id/profile_image"
-            diagonal:layout_constraintTop_toBottomOf="@+id/profile_image" />
+            diagonal:layout_constraintEnd_toEndOf="@+id/profileImage"
+            diagonal:layout_constraintStart_toStartOf="@+id/profileImage"
+            diagonal:layout_constraintTop_toBottomOf="@+id/profileImage" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/profession"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Fashion Designer"
             android:textSize="@dimen/_12font_mdp"
-            diagonal:layout_constraintEnd_toEndOf="@+id/textView3"
-            diagonal:layout_constraintStart_toStartOf="@+id/textView3"
-            diagonal:layout_constraintTop_toBottomOf="@+id/textView3" />
+            diagonal:layout_constraintEnd_toEndOf="@+id/userName"
+            diagonal:layout_constraintStart_toStartOf="@+id/userName"
+            diagonal:layout_constraintTop_toBottomOf="@+id/userName" />
 
         <View
             android:id="@+id/addFriendView"
@@ -165,7 +165,7 @@
             diagonal:layout_constraintEnd_toEndOf="parent"
             diagonal:layout_constraintHorizontal_bias="0.5"
             diagonal:layout_constraintStart_toEndOf="@+id/commentView"
-            diagonal:layout_constraintTop_toBottomOf="@+id/textView5" />
+            diagonal:layout_constraintTop_toBottomOf="@+id/profession" />
 
         <ImageView
             android:id="@+id/call"
