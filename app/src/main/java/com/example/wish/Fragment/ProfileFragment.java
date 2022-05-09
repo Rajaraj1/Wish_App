@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.wish.Adapter.FriendAdapter;
 import com.example.wish.Model.FriendModel;
 import com.example.wish.R;
@@ -67,15 +68,24 @@ public class ProfileFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     User user = snapshot.getValue(User.class);
-                    Picasso.get()
+//                    Picasso.get()
+//                            .load(user.getCoverPhoto())
+//                            .placeholder(R.drawable.diya_singh)
+//                            .into(binding.coverPhoto);
+//                    Picasso.get()
+//                            .load(user.getProfile())
+//                            .placeholder(R.drawable.riya_raj_1)
+//                            .into(binding.profileImage);
+
+                    Glide.with(getContext())
                             .load(user.getCoverPhoto())
                             .placeholder(R.drawable.diya_singh)
                             .into(binding.coverPhoto);
-                    Picasso.get()
-                            .load(user.getProfile())
-                            .placeholder(R.drawable.cute_girl)
-                            .into(binding.profileImage);
 
+                    Glide.with(getContext())
+                            .load(user.getProfile())
+                            .placeholder(R.drawable.riya_raj_1)
+                            .into(binding.profileImage);
                     binding.userName.setText(user.getName());
                     binding.profession.setText(user.getProfession());
                 }
