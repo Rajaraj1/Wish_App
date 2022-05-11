@@ -3,6 +3,7 @@ package com.example.wish;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -45,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
                 switch (i) {
                     case 0:
                         binding.toolbar.setVisibility(View.GONE);
-                        transaction.replace(R.id.container, new HomeFragment());
+//                        transaction.replace(R.id.container, new HomeFragment());
+                        Intent intent = new Intent(MainActivity.this,NewsActivity.class);
+                        startActivity(intent);
                         break;
                     case 1:
                         binding.toolbar.setVisibility(View.GONE);
